@@ -3,7 +3,7 @@ import { create } from 'zustand';
 const useAnimationStore = create((set) => ({
   // State'ler
   animasyonDurumu: 'bitti', // 'başladı' | 'bitti'
-  animasyonTipi: null, // 'kalpGül' | 'patlama' | null
+  animasyonTipi: null, // 'fadeIn' | 'slideIn' | 'bounce' | 'float' | 'heartPulse' | null
   animasyonParametreleri: {
     hız: 1,
     boyut: 1,
@@ -13,6 +13,7 @@ const useAnimationStore = create((set) => ({
     messages: [],
     currentCapsule: null
   },
+  isOnline: navigator.onLine,
 
   // Action'lar
   başlatAnimasyon: (tip, parametreler) => set(() => ({
@@ -62,7 +63,9 @@ const useAnimationStore = create((set) => ({
         theme
       } : null
     }
-  }))
+  })),
+
+  setOnlineStatus: (status) => set(() => ({ isOnline: status }))
 }));
 
 export default useAnimationStore;

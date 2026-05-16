@@ -7,8 +7,8 @@
     "react-dom": "^18.2.0",
     "framer-motion": "^11.0.0",
     "lucide-react": "^0.300.0",
-    "zustand": "^4.4.0",
-    "@testing-library/react": "latest"
+    "react-router-dom": "^6.20.0",
+    "zustand": "^4.4.0"
   },
   "devDependencies": {
     "vite": "^5.0.0",

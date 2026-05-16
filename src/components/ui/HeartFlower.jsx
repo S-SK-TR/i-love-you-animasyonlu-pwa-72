@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Heart, Flower } from 'lucide-react';
+import { Heart, Flower, WifiOff } from 'lucide-react';
 import useAnimationStore from '@/store/animationStore';
 
 const HeartFlower = () => {
@@ -9,7 +9,8 @@ const HeartFlower = () => {
     animasyonTipi,
     animasyonParametreleri,
     başlatAnimasyon,
-    durdurAnimasyon
+    durdurAnimasyon,
+    isOnline
   } = useAnimationStore();
 
   const [isOpen, setIsOpen] = useState(false);
@@ -38,8 +39,42 @@ const HeartFlower = () => {
     }
   };
 
+  const animasyonVaryantlari = {
+    fadeIn: {
+      initial: { opacity: 0 },
+      animate: { opacity: 1 },
+      transition: { duration: 1 }
+    },
+    slideIn: {
+      initial: { x: -100, opacity: 0 },
+      animate: { x: 0, opacity: 1 },
+      transition: { type: 'spring', stiffness: 100 }
+    },
+    bounce: {
+      initial: { y: -50, opacity: 0 },
+      animate: { y: 0, opacity: 1 },
+      transition: { type: 'spring', damping: 5 }
+    },
+    float: {
+      initial: { y: 0 },
+      animate: { y: [0, -10, 0] },
+      transition: { duration: 2, repeat: Infinity, ease: 'easeInOut' }
+    },
+    heartPulse: {
+      initial: { scale: 1 },
+      animate: { scale: [1, 1.2, 1] },
+      transition: { duration: 0.5, repeat: Infinity, repeatType: 'reverse' }
+    }
+  };
+
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex items-center justify-center relative">
+      {!isOnline && (
+        <div className="absolute top-4 right-4 z-50 flex items-center gap-2 p-2 rounded-lg bg-red-500/10 border border-red-500/20 text-red-500">
+          <WifiOff size={16} />
+          <span className="text-xs font-medium">Çevrimdışı Mod</span>
+        </div>
+      )}
       <motion.div
         className="relative w-64 h-64 cursor-pointer"
         onClick={handleClick}
@@ -50,13 +85,10 @@ const HeartFlower = () => {
         {/* Kalp */}
         <motion.div
           className="absolute inset-0 flex items-center justify-center"
-          animate={{
-            scale: isOpen ? [1, 1.1, 1] : 1,
-            rotate: isOpen ? [0, 10, -10, 0] : 0
-          }}
+          animate={animasyonVaryantlari[animasyonTipi || 'fadeIn'].animate}
           transition={{
-            duration: isOpen ? 0.8 * animasyonParametreleri.hız : 0.3 * animasyonParametreleri.hız,
-            ease: "easeInOut"
+            duration: animasyonParametreleri.hız,
+            ...animasyonVaryantlari[animasyonTipi || 'fadeIn'].transition
           }}
         >
           <Heart
@@ -91,18 +123,6 @@ const HeartFlower = () => {
             </motion.div>
           ))}
         </AnimatePresence>
-
-        {/* Patlama Efekti */}
-        {isOpen && animasyonTipi === 'patlama' && (
-          <motion.div
-            className="absolute inset-0 flex items-center justify-center pointer-events-none"
-            initial={{ scale: 0.5, opacity: 0 }}
-            animate={{ scale: [1, 1.5, 0], opacity: [0.8, 0] }}
-            transition={{ duration: 0.8 * animasyonParametreleri.hız, ease: "easeOut" }}
-          >
-            <div className="w-full h-full rounded-full bg-red-500/20" style={{ backgroundColor: `${animasyonParametreleri.renk}20` }} />
-          </motion.div>
-        )}
       </motion.div>
     </div>
   );
