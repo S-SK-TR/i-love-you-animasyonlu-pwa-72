@@ -1,11 +1,11 @@
 {
-  "name": "Seni Seviyorum",
-  "short_name": "Seviyorum",
-  "description": "Kalbim senin için çiçek açtı",
+  "name": "I Love You Animasyonlu PWA",
+  "short_name": "I Love You",
+  "description": "Özel animasyonlu mesaj uygulamanız",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#ff6b6b",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
   "icons": [
     {
       "src": "pwa-192x192.png",
@@ -16,6 +16,12 @@
       "src": "pwa-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
+    },
+    {
+      "src": "mask-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
     }
   ]
 }

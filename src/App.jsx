@@ -1,19 +1,11 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import AppShell from '@/components/layout/AppShell';
-import Home from '@/pages/Home';
-import Settings from '@/pages/Settings';
+import Home from './pages/Home';
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<AppShell />}>
-          <Route index element={<Home />} />
-          <Route path="settings" element={<Settings />} />
-        </Route>
-      </Routes>
-    </Router>
+    <div className="min-h-screen p-4 md:p-8">
+      <Home />
+    </div>
   );
 }
 
