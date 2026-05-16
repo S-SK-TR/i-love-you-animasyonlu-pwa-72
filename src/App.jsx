@@ -1,11 +1,19 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import AppShell from '@/components/layout/AppShell';
+import Home from '@/pages/Home';
+import Settings from '@/pages/Settings';
 
 function App() {
   return (
-    <div style={{textAlign:'center',marginTop:'5rem'}}>
-      <h1>I Love You Animasyonlu PWA</h1>
-      <p>Uygulama basariyla olusturuldu!</p>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<AppShell />}>
+          <Route index element={<Home />} />
+          <Route path="settings" element={<Settings />} />
+        </Route>
+      </Routes>
+    </Router>
   );
 }
 
