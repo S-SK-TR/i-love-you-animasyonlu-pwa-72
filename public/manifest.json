@@ -1,0 +1,21 @@
+{
+  "name": "Seni Seviyorum",
+  "short_name": "Seviyorum",
+  "description": "Kalbim senin için çiçek açtı",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ff6b6b",
+  "icons": [
+    {
+      "src": "pwa-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "pwa-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
