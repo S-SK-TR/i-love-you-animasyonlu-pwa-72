@@ -10,25 +10,15 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
       manifest: {
-        name: 'Seni Seviyorum',
-        short_name: 'Seviyorum',
-        description: 'Kalbim senin için çiçek açtı',
-        theme_color: '#ff6b6b',
-        background_color: '#ffffff',
-        display: 'standalone',
+        name: 'I Love You Animasyonlu PWA',
+        short_name: 'I Love You Animasyonlu PWA',
+        description: 'Premium PWA Experience',
+        theme_color: '#000000',
         icons: [
-          {
-            src: 'pwa-192x192.png',
-            sizes: '192x192',
-            type: 'image/png'
-          },
-          {
-            src: 'pwa-512x512.png',
-            sizes: '512x512',
-            type: 'image/png'
-          }
+          { src: 'pwa-192x192.png', sizes: '192x192', type: 'image/png' },
+          { src: 'pwa-512x512.png', sizes: '512x512', type: 'image/png' }
         ]
       }
     })
-  ]
+  ],
 });
