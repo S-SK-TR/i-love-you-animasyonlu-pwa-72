@@ -1,10 +1,10 @@
 import React from 'react';
-import Home from './pages/Home';
 
 function App() {
   return (
-    <div className="min-h-screen p-4 md:p-8">
-      <Home />
+    <div style={{textAlign:'center',marginTop:'5rem'}}>
+      <h1>I Love You Animasyonlu PWA</h1>
+      <p>Uygulama basariyla olusturuldu!</p>
     </div>
   );
 }

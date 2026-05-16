@@ -4,6 +4,7 @@ import { Heart, MessageCircle, Share2, Camera, Music, BookOpen } from 'lucide-re
 import Button from '@/components/ui/Button';
 import HeartFlower from '@/components/ui/HeartFlower';
 import AnimationControls from '@/components/ui/AnimationControls';
+import LoveCapsuleManager from '@/components/ui/LoveCapsuleManager';
 
 const Home = () => {
   return (
@@ -148,13 +149,23 @@ const Home = () => {
         >
           <AnimationControls />
         </motion.div>
+
+        {/* Love Capsule Manager Kartı */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.8 }}
+          className="glass-card rounded-2xl p-0 md:col-span-2"
+        >
+          <LoveCapsuleManager />
+        </motion.div>
       </div>
 
       {/* Action Section */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.8 }}
+        transition={{ duration: 0.5, delay: 0.9 }}
         className="glass-card rounded-2xl p-8 text-center"
       >
         <h2 className="text-2xl font-bold mb-4">Hazır mısın?</h2>

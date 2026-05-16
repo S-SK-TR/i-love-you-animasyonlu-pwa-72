@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -74,49 +75,4 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.2);
-}
-
-/* Animasyonlu Kalp Gül Bileşeni için özel stiller */
-.heart-flower-container {
-  perspective: 1000px;
-}
-
-.heart-flower {
-  transform-style: preserve-3d;
-}
-
-.petal {
-  position: absolute;
-  transform-origin: center;
-  will-change: transform, opacity;
-}
-
-/* Buton hover efektleri */
-button {
-  transition: all 0.2s ease;
-}
-
-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-button:active {
-  transform: translateY(0);
-}
-
-/* Mobil uyumluluk için stiller */
-@media (max-width: 768px) {
-  .glass-card {
-    padding: 1.5rem !important;
-  }
-
-  h1 {
-    font-size: 2rem !important;
-  }
-
-  .heart-flower-container {
-    width: 100% !important;
-    height: auto !important;
-  }
 }

@@ -9,6 +9,10 @@ const useAnimationStore = create((set) => ({
     boyut: 1,
     renk: '#ff0000', // varsayılan kırmızı
   },
+  loveCapsule: {
+    messages: [],
+    currentCapsule: null
+  },
 
   // Action'lar
   başlatAnimasyon: (tip, parametreler) => set(() => ({
@@ -26,6 +30,37 @@ const useAnimationStore = create((set) => ({
     animasyonParametreleri: {
       ...state.animasyonParametreleri,
       ...yeniParametreler
+    }
+  })),
+
+  addMessage: (message) => set((state) => ({
+    loveCapsule: {
+      ...state.loveCapsule,
+      messages: [...state.loveCapsule.messages, message]
+    }
+  })),
+
+  removeMessage: (id) => set((state) => ({
+    loveCapsule: {
+      ...state.loveCapsule,
+      messages: state.loveCapsule.messages.filter(msg => msg.id !== id)
+    }
+  })),
+
+  setCurrentCapsule: (capsule) => set((state) => ({
+    loveCapsule: {
+      ...state.loveCapsule,
+      currentCapsule: capsule
+    }
+  })),
+
+  updateCapsuleTheme: (theme) => set((state) => ({
+    loveCapsule: {
+      ...state.loveCapsule,
+      currentCapsule: state.loveCapsule.currentCapsule ? {
+        ...state.loveCapsule.currentCapsule,
+        theme
+      } : null
     }
   }))
 }));
